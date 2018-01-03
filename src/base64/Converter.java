@@ -27,11 +27,11 @@ public class Converter {
 	}
 	public static void converter() throws Exception{
 		List<String>list = toStringFromExam(
-				Files.readAllLines(Paths.get("C:/Users/takayoshi/workspace/PDF/result2017h29a_sc_am2_qs.txt"),
+				Files.readAllLines(Paths.get("work/text/result2017h29a_sc_am2_qs.txt"),
 				Charset.forName("MS932"))
 				.stream()
 		);
-		Files.write(Paths.get("C:/Users/takayoshi/workspace/PDF/result2017h29a_sc_am2_qs_new.txt"), 
+		Files.write(Paths.get("work/text/result2017h29a_sc_am2_qs_new.txt"), 
 				list,
 				Charset.forName("MS932"),
 				StandardOpenOption.CREATE_NEW,
