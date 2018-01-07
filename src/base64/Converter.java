@@ -13,25 +13,27 @@ import java.util.stream.Stream;
 public class Converter {
 	
 	public static void main(String args[])throws Exception{
-		converter();
+		System.out.println(converToBase64("./work/img/img.png"));
 	}
 
 	public static String converToBase64(String path)throws Exception{
 		return Base64.getEncoder()
 				.encodeToString(
 						Files.readAllBytes(Paths.get(path)));
-//		System.out.println(base64);
-//		Files.write(Paths.get("C:/img/newimg.png"), 
-//				Base64.getDecoder().decode(base64), 
-//				StandardOpenOption.CREATE_NEW);
 	}
+	public static void converBase64ToFile(String src,String dist)throws Exception{
+		Files.write(Paths.get(dist), 
+				Base64.getDecoder().decode(src), 
+				StandardOpenOption.CREATE_NEW);
+	}
+	
 	public static void converter() throws Exception{
 		List<String>list = toStringFromExam(
-				Files.readAllLines(Paths.get("work/text/result2017h29a_sc_am2_qs.txt"),
+				Files.readAllLines(Paths.get("work/text/2017h29h_sc_am2_qs.txt"),
 				Charset.forName("MS932"))
 				.stream()
 		);
-		Files.write(Paths.get("work/text/result2017h29a_sc_am2_qs_new.txt"), 
+		Files.write(Paths.get("work/text/2017h29h_sc_am2_qs_new.txt"), 
 				list,
 				Charset.forName("MS932"),
 				StandardOpenOption.CREATE_NEW,

@@ -21,14 +21,14 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 public class PDFMaker {
 	public static void main(String args[])throws Exception{
 		//読み込むPDFファイル
-		PDDocument document = PDDocument.load(new File("work/text/pdf/2017h29h_sc_am2_qs.pdf"));
+		PDDocument document = PDDocument.load(new File(args[0]));
 		//PDFページを処理する
 		Stream<PDPage>stream = StreamSupport.stream(Spliterators.spliteratorUnknownSize(
 				document.getDocumentCatalog().getPages().iterator(),
 						Spliterator.ORDERED),false);
 		
 		System.out.println("start");
-		Files.write(Paths.get("work/text/2017h29h_sc_am2_qs.txt"), 
+		Files.write(Paths.get(args[1]), 
 				stream.map(s->exePDFpage(s)).collect(Collectors.toList()), 
 				Charset.forName("MS932"),
 				StandardOpenOption.CREATE);

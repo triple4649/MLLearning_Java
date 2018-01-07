@@ -15,7 +15,7 @@ public class XMLCreater {
 	private static final String SELECTION_REG = "^#(ア|イ|ウ|エ)";
 	private static final String QUETION_REG = "^\\+";
 	private static final String SELECTION_TAG ="<selection option='%s'> %s </selection>";
-	private static final String QUETION_TAG ="<quetion num='%s'> %s ";
+	private static final String QUETION_TAG ="<question num='%s'> %s ";
 
 	public static void main(String args[])throws Exception{
 		createXMLFile("work/text/result2017h29a_sc_am2_qs_new.txt","work/text/result2017h29a_sc_am2_qs_new.xml");
@@ -54,7 +54,7 @@ public class XMLCreater {
 		return (index != 0 ? createQuetionCloseTag():"")+String.format(QUETION_TAG, questionnum,strs[1].replaceFirst("\\+", ""));
 	}
 	public static String createQuetionCloseTag(){
-		return "</quetion>";
+		return "</question>";
 	}
 	public static String createSelectionTag(String str){
 		String[] strs = str.split(SELECTION_REG);

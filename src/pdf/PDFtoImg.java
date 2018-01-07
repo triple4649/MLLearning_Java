@@ -7,7 +7,7 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
 public class PDFtoImg {
-	private static final String  DICTIONARY_PATH ="tessdata/";
+	private static final String  DICTIONARY_PATH ="./tessdata/";
     public static String extractFromPDF(BufferedImage img) {
 		ITesseract instance = new Tesseract();
 		try {
